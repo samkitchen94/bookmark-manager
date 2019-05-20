@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'capybara'
 gem 'rspec'
-gem 'rubocop-performance'
-gem 'simplecov'
-gem 'simplecov-console'
+gem 'rubocop', '0.56.0'
+gem 'simplecov', require: false, group: :test
+gem 'simplecov-console', require: false, group: :test
 gem 'sinatra'
