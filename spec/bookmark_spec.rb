@@ -13,7 +13,7 @@ describe Bookmark do
 
       expect(bookmarks.length).to eq 3
       expect(bookmarks.first).to be_a Bookmark
-      #expect(bookmarks.first.id).to eq Bookmark.id
+      expect(bookmarks.first.id).to eq bookmark.id
       expect(bookmarks.first.title).to eq 'Makers Academy'
       expect(bookmarks.first.url).to eq 'http://www.makersacademy.com'
     end
@@ -24,6 +24,13 @@ describe Bookmark do
       bookmark = Bookmark.create(url: 'http://www.steam.com', title: 'Gaming').first
       expect(bookmark['url']).to eq 'http://www.steam.com'
       expect(bookmark['title']).to eq 'Gaming'
+    end
+  end
+
+  describe ".delete" do
+    it "deletes a bookmark from the list" do
+      bookmark = Bookmark.create(url: 'http://www.steam.com', title: 'Gaming')
+      bookmark.delete(url)
     end
   end
 end
