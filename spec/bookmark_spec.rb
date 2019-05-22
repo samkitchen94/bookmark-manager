@@ -21,16 +21,17 @@ describe Bookmark do
 
   describe ".create" do
     it "adds a new bookmark to the list" do
-      bookmark = Bookmark.create(url: 'http://www.steam.com', title: 'Gaming').first
-      expect(bookmark['url']).to eq 'http://www.steam.com'
-      expect(bookmark['title']).to eq 'Gaming'
+      bookmark = Bookmark.create(url: 'http://www.steam.com', title: 'Gaming')
+      expect(bookmark.url).to eq 'http://www.steam.com'
+      expect(bookmark.title).to eq 'Gaming'
     end
   end
 
   describe ".delete" do
     it "deletes a bookmark from the list" do
       bookmark = Bookmark.create(url: 'http://www.steam.com', title: 'Gaming')
-      bookmark.delete(url)
+      Bookmark.delete(id: bookmark.id)
+      expect(Bookmark.all.length).to eq(0)
     end
   end
 end
